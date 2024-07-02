@@ -7,7 +7,7 @@ import NotesBar from './Components/NotesBar';
 
 function App() {
   return (
-    <div>
+    <div className='main'>
       <Header/>
       <SearchBar/>
       <NotesBar/>
