@@ -1,8 +1,10 @@
+
 import React from "react";
 
 function Note(props) {
   function handleDeleteClick(){
-    props.onDelete(props.id);
+    if(window.confirm("do you want to delete this note?"))
+      props.onDelete(props.id);
   }
   function handleCheckboxChange(){
     props.onToggleComplete(props.id);

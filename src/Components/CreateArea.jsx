@@ -20,19 +20,26 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
+    event.preventDefault();
+
+    if(note.title.trim() === "" || note.content.trim() === "") {
+      alert("Please enter both title and content for the note.");
+      return;
+    }
+
     props.onAdd(note);
     setNote({
       title: "",
       content: "",
       category: "Home"
     });
-    event.preventDefault();
   }
 
   return (
     <div>
       <form>
         <input
+          required
           name="title"
           onChange={handleChange}
           value={note.title}
@@ -40,6 +47,7 @@ function CreateArea(props) {
           maxLength={50}
         />
         <textarea
+          required
           name="content"
           onChange={handleChange}
           value={note.content}
